@@ -53,6 +53,41 @@ $ python hapax.py
 hapax-3f9c21ab.svg  [mosaic/pastelex]  seed='untitled-4e81c2'
 ```
 
+The seed that asked for this repo to exist — resolved to ribbons over a moss palette:
+
+<div align="center">
+
+<img src="gallery/quantum.svg" width="420" alt='hapax "quantum" — ribbons/moss'>
+
+<sub><b>"quantum"</b> · ribbons/moss · <code>8fb7cf7a</code> — one command, deterministic forever</sub>
+
+</div>
+
+## make your own things
+
+The [`examples/`](examples) folder is a set of ready pipelines that import `hapax.py`
+as a library — copy any of them and bend it to yours:
+
+| script | what it does |
+|---|---|
+| [`examples/batch_from_file.py`](examples/batch_from_file.py) | one poster per line of a `phrases.txt` — bulk editions |
+| [`examples/wallpaper_pack.py`](examples/wallpaper_pack.py) | one phrase → desktop / 4K / ultrawide / phone / tablet pack |
+| [`examples/contact_sheet.py`](examples/contact_sheet.py) | numbered edition `#1..#N` + a browsable `index.html` |
+| [`examples/library_usage.py`](examples/library_usage.py) | the full library API in ~40 lines — render, inspect, post-process |
+
+All four are pure standard library and read `hapax` from the repo root, so they run
+from anywhere:
+
+```bash
+python examples/wallpaper_pack.py "quantum" -o walls/
+python examples/contact_sheet.py "album" -n 12 --style constellation
+```
+
+For anything beyond the flags, `hapax.py` is one readable file: a `build_poster()`
+pure function, a `STYLES` registry you can extend with your own drawing system, a
+`PALETTES` dict you can grow, and `rng_for(seed, domain)` if you want deterministic
+behavior in code of your own.
+
 ## five algorithms
 
 Every poster is one of five hand-built drawing systems. `--style auto` lets the seed choose.
